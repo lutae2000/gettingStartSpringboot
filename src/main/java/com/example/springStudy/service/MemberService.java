@@ -2,13 +2,19 @@ package com.example.springStudy.service;
 
 import com.example.springStudy.domain.Member;
 import com.example.springStudy.repository.MemberRepository;
-import com.example.springStudy.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+//
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+    private final MemberRepository memberRepository;
+
+    //@Autowired
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /*회원가입*/
     public Long join(Member member){
